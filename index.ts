@@ -3,7 +3,6 @@ const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
-const router = require("./routes")
 dotenv.config();
 const cors = require("cors");
 const bodyParser = require("body-parser");
@@ -14,10 +13,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-
-app.use(express.json());
-
-app.use("/", router)
+app.use("/", require("./routes"))
 mongoose.connect(process.env.MONGO_URL,
     {
         useNewUrlParser: true,
