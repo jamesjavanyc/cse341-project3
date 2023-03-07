@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+export {}
 // 定义category类型规则
 const categorySchema = new mongoose.Schema({
     name:{

@@ -3,10 +3,10 @@ const User = require("../models/User");
 const Post = require("../models/Post");
 // 加密
 const bcrypt = require("bcrypt");
-
+export {}
 //update
 //update-put save-post del-delete request-get
-router.put("/:id", async (req,res)=>{
+router.put("/:id", async (req:any,res:any)=>{
     console.log(req)
     if(req.body.userId === req.params.id){
         if(req.body.password){
@@ -30,7 +30,7 @@ router.put("/:id", async (req,res)=>{
 });
 
 //delete
-router.delete("/:id",async (req,res)=>{
+router.delete("/:id",async (req:any,res:any)=>{
     if(req.body.userId === req.params.id){
         try{
             const user = await User.findById(req.params.userId);
@@ -53,7 +53,7 @@ router.delete("/:id",async (req,res)=>{
 })
 
 //get user
-router.get("/:id", async (req,res)=>{
+router.get("/:id", async (req:any,res:any)=>{
     if(req.body.userId === req.params.id){
         try{
             const user = await User.findById(req.params.id);

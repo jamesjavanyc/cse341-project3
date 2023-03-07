@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+export {}
 
 // 定义post类型规则
 const postSchema = new mongoose.Schema({

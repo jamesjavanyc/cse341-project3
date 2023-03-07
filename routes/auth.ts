@@ -2,10 +2,10 @@ const router = require("express").Router();
 const User = require("../models/User");
 // 加密
 const bcrypt = require("bcrypt");
-
+export {}
 //register
 //update-put save-post del-delete request-get
-router.post("/register",async (req,res)=>{
+router.post("/register",async (req:any,res:any)=>{
     try{
         const salt = await bcrypt.genSalt(10);
         // 加密加盐
@@ -26,7 +26,7 @@ router.post("/register",async (req,res)=>{
 });
 
 //login
-router.post("/login",async (req, res)=>{
+router.post("/login",async (req:any,res:any)=>{
     try{
         const user = await  User.findOne({username: req.body.username});
         !user && res.status(400).json("No such user.");

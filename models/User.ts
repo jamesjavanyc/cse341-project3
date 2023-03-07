@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+export {}
 // 定义user类型规则
 const UserSchema = new mongoose.Schema({
     username:{

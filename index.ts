@@ -7,7 +7,7 @@ dotenv.config();
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const cookieParser = require('cookie-parser');
-
+export {}
 app.use(cors());
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }));

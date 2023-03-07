@@ -3,9 +3,10 @@ const User = require("../models/User");
 const Post = require("../models/Post");
 // 加密
 const bcrypt = require("bcrypt");
+export {}
 
 //create new post
-router.post("/", async (req,res)=>{
+router.post("/", async (req:any,res:any)=>{
     const newPost = await new Post(req.body);
     try{
         const savedPost = newPost.save();
@@ -16,7 +17,7 @@ router.post("/", async (req,res)=>{
 });
 
 //update put
-router.put("/:id",async (req,res)=>{
+router.put("/:id",async (req:any,res:any)=>{
     try{
         const post = await Post.findById(req.params.id);
         if(post.username=== req.body.username ){
@@ -38,7 +39,7 @@ router.put("/:id",async (req,res)=>{
 })
 
 //delete post
-router.delete("/:id",async (req,res)=>{
+router.delete("/:id",async (req:any,res:any)=>{
     try{
         const post = await Post.findById(req.params.id);
         if(post.username=== req.body.username ){
@@ -57,7 +58,7 @@ router.delete("/:id",async (req,res)=>{
 })
 
 //GET POST
-router.get("/:id", async (req, res) => {
+router.get("/:id", async (req:any,res:any) => {
     try {
         const post = await Post.findById(req.params.id);
         res.status(200).json(post);
@@ -67,7 +68,7 @@ router.get("/:id", async (req, res) => {
 });
 
 //GET ALL POSTS
-router.get("/", async (req, res) => {
+router.get("/", async (req:any,res:any) => {
     const username = req.query.user;
     //catagory
     const catName = req.query.cat;

@@ -6,7 +6,7 @@
       "@routes/*":["src/routes/*"],
       "@utils/*":["src/utils/*"]
     },
-    "lib": ["es2018", "esnext.asynciterable"],
+    "lib": ["es2015", "esnext.asynciterable"],
     "target": "es6",
     "module": "commonjs",
     "outDir": "dist/ts",
