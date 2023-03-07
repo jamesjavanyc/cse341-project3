@@ -1,4 +1,4 @@
-import {Response} from "express";
+
 const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
@@ -7,23 +7,49 @@ dotenv.config();
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const cookieParser = require('cookie-parser');
+const { ApolloServer } = require("apollo-server-express");
 export {}
 app.use(cors());
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+// 定义 typeDefs
+const typeDefs = `
+    type Query {
+        hello: String
+    }
+`;
+
+// 定义 resolver
+const resolvers = {
+    Query: {
+        hello: () => 'Hello world!'
+    }
+};
+
+const apolloServer = new ApolloServer({
+
+    typeDefs,
+
+    resolvers
+
+});
 app.use("/", require("./routes"))
+
 mongoose.connect(process.env.MONGO_URL,
     {
         useNewUrlParser: true,
         useUnifiedTopology: true
     })
-    .then(console.log("database connected..."))
+    .then(async() =>{
+        await apolloServer.start();
+        apolloServer.applyMiddleware({ app });
+        app.listen(port, () => {
+            console.log("Server start on port " + port);
+        });
+    })
     .catch((e:any)=> console.log(e));
 
 const port = process.env.PORT || "5000"
 
-app.listen(port,()=>{
-    console.log("Express is running...");
-});
