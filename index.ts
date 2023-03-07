@@ -24,7 +24,7 @@ const typeDefs = `
 // 定义 resolver
 const resolvers = {
     Query: {
-        hello: () => 'Hello world!'
+        hello: () => 'Hello Rest Blog!'
     }
 };
 
