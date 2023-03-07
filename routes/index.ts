@@ -7,6 +7,6 @@ export {}
 router.use("/api/auth",authRoute);
 router.use("/api/users",userRoute);
 router.use("/api/posts",postRoute);
-router.use("/api/catagories",catagoriesRoute);
+router.use("/api/categories",catagoriesRoute);
 
 module.exports = router
