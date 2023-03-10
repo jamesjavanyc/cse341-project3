@@ -6,6 +6,9 @@
     "swagger": "node ./swagger.ts",
     "start": "nodemon index.ts"
   },
+  "engines": {
+    "node": ">=18"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
