@@ -35,7 +35,7 @@ const apolloServer = new ApolloServer({
 
 });
 app.use("/", require("./routes"))
-
+const port = process.env.PORT || "5000"
 mongoose.connect(process.env.MONGO_URL,
     {
         useNewUrlParser: true,
@@ -49,5 +49,4 @@ mongoose.connect(process.env.MONGO_URL,
         });
     });
 
-const port = process.env.PORT || "5000"
 
