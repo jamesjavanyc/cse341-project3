@@ -23,6 +23,12 @@ const postSchema = new mongoose.Schema({
     categories:{
         type: Array ,
         required:false
+    },
+    createDate:{
+        type: Date,
+    },
+    lastUpdateDate:{
+        type: Date,
     }
 },{timestamps:true});
 
